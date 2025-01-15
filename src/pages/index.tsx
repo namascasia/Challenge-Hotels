@@ -5,6 +5,13 @@ import Stars from "@/components/Stars";
 
 type mealType = string | { code: number; text: string };
 
+interface ApiResponse {
+  data: Hotel[];
+  errorCode: string | null;
+  message: string;
+  success: boolean;
+}
+
 type Hotel = {
   hotelId: number;
   name: string;
@@ -25,11 +32,11 @@ const Home = () => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await axios.get(
+        const { data } = await axios.get<ApiResponse>(
           "https://api-dev.outletdehoteles.com/api/availability/public"
         );
 
-        const hotelsData = response.data.data.map((hotel: Hotel) => ({
+        const hotelsData = data.data.map((hotel: Hotel) => ({
           hotelId: hotel.hotelId,
           name: hotel.name,
           photos: hotel.photos,
@@ -41,7 +48,7 @@ const Home = () => {
           originalHighestPrice: hotel.originalHighestPrice,
           originalLowestPrice: hotel.originalLowestPrice
         }));
-        
+        console.log(hotelsData);
         setHotels(hotelsData);
       } catch (error) {
         console.error("Error fetching hotels:", error);

@@ -1,42 +1,153 @@
+@import "swiper/swiper-bundle.css";
+
 :root {
-  --background: #ffffff;
+  --background: #f8f8f8;
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #171717;
+}
+
+.cards {
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.card {
+  background-color: #fff;
+  height: 210px;
+  border-radius: 10px;
+  display: flex;
+  gap: 5px;
+  box-shadow: 1px 3px 8px -2px #93939380;
+  -webkit-box-shadow: 1px 3px 8px -2px #93939380;
+  -moz-box-shadow: 1px 3px 8px -2px #93939380;
+  border: 1px solid #93939320;
+}
+
+.card-content {
+  width: 100%;
+  padding: 10px;
+  font-family: 'Helvetica', sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-img {
+  width: 310px;
+}
+
+.name-hotel {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.information-hotel {
+  width: '40%';
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.region-hotel {
+  color: #929292;
+}
+
+.prices-hotel {
+  width: '60%';
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-bottom: 8px;
+}
+
+.button-reserve{
+  background-color: #cc0c39;
+  border-radius: 5px;
+  color: #fff;
+  padding: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.discounts-reserve{
+  font-size: 20px;
+  color: #cc0c39;
+  font-weight: bold;
+}
+
+.regular-price {
+  font-size: 15px;
+  color: #929292;
+}
+
+.perNight-price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.included-price {
+  font-size: 15px;
+  color: #929292;
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    gap: 10px;
+    height: auto;
   }
-}
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+  .card-img {
+    width: 350px;
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  .prices-hotel {
+    width: 95%;
+    text-align: right; 
+  }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  .name-hotel {
+    font-size: 18px;
+  }
+
+  .region-hotel {
+    font-size: 14px;
+  }
+
+  .perNight-price {
+    font-size: 18px;
+  }
+
+  .discounts-reserve {
+    font-size: 18px;
   }
 }
